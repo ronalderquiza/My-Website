@@ -11,11 +11,15 @@
   $myfile = fopen("t.txt", "w") or die("Unable to open file!");
   fwrite($myfile, $value);
   $ip = $_SERVER['REMOTE_ADDR'];
-  
+
+  $hostname = gethostname(); // may output e.g,: sandie
+  // Or, an option that also works before PHP 5.3
+  $uname = php_uname('n'); // may output e.g,: sandie
+
   $myfile2 = fopen("i.txt", "r") or die("Unable to open file!");
   $value2 = fread($myfile2,filesize("i.txt"));
   fclose($myfile2);
-  $value2 = "$value2<br>$ip";
+  $value2 = "$value2<br>$ip-$hostname-$uname";
   $myfile2 = fopen("i.txt", "w") or die("Unable to open file!");
   fwrite($myfile2, $value2);
   
