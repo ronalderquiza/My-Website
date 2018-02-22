@@ -1,2 +1,2 @@
 # My-Website
-Just a simple website made for me
+Just a simple website made by me
